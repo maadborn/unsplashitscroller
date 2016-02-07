@@ -1,6 +1,7 @@
 /*
 	Infinite image scroller with images from unsplash.it
 */
+'use strict';
 
 var UnsplashScroller;
 

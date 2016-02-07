@@ -3,6 +3,8 @@
     https://developer.mozilla.org/en-US/docs/Web/Events/scroll
 */
 
+'use strict';
+
 (function() {
     var throttle = function(type, name, obj) {
         obj = obj || window;

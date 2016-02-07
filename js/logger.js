@@ -1,5 +1,7 @@
 /* Logger module */
 
+'use strict';
+
 var Logger;
 
 (function(logger) {
