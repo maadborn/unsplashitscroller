@@ -1,0 +1,27 @@
+
+html {
+	/* background-color: #fff; */
+	background-color: #FAFFFC;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.image-container {
+	margin: 0 auto;
+	width: 90%;
+	height: 100%;
+}
+
+img {
+	border: 0;
+}
+
+.unsplash-image {
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	box-shadow: 0px 3px 10px 5px #ccc;
+}
