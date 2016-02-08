@@ -76,8 +76,7 @@ var UnsplashScroller;
 
 	function getScrolledPx() {
 		return document.documentElement.scrollTop 
-			|| document.scrollTop
-			|| document.querySelector('body').scrollTop
+			|| document.body.scrollTop
 			|| 0;
 	}
 
