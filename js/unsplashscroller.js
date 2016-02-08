@@ -9,9 +9,11 @@ var UnsplashScroller;
 
 (function(unsplashScroller, logger) {
 
+	/* Private members */
 	var SCROLLABLE_EXTRA = 1000;
-	var loadMoreImagesHeight = window.innerHeight + SCROLLABLE_EXTRA;
+	var loadMoreImagesHeight = window.innerHeight * 2;
 
+	/* Public members */
 	unsplashScroller.container = null;
 
 	/* Init function */
@@ -19,7 +21,7 @@ var UnsplashScroller;
 		if (!selector) {
 			logger.error('UnsplashScroller init(): selector argument missing');
 			return;
-		};
+		}
 
 		this.container = this.getContainer(selector);
 
@@ -28,8 +30,8 @@ var UnsplashScroller;
 		}
 
 		window.addEventListener('optimizedScroll', function(event) {
-		    var body = document.querySelector('body');
-		    while (this.container.offsetHeight - body.scrollTop < loadMoreImagesHeight) {
+			var scrolledPx = getScrolledPx();
+		    while (this.container.offsetHeight - scrolledPx < loadMoreImagesHeight) {
 				this.addImage(this.container);
 			}
 		}.bind(this));
@@ -56,15 +58,27 @@ var UnsplashScroller;
 	/* Get a random image element */
 	unsplashScroller.getImageElement = function(width, height) {
 		var randomNum = Math.floor(Math.random() * 1000000);
+
 		var elem = document.createElement('img');
 		elem.style.height = height+'px';
 		elem.src = 'https://unsplash.it/' + width + '/' + height + '/?random&' + randomNum;
+		
 		if (elem.classList) {
 			elem.classList.add('unsplash-image');
 		} else {
 			elem.className = 'unsplash-image';
 		};
+
 		return elem;
 	};
+
+	/* Private functions */
+
+	function getScrolledPx() {
+		return document.documentElement.scrollTop 
+			|| document.scrollTop
+			|| document.querySelector('body').scrollTop
+			|| 0;
+	}
 
 })(UnsplashScroller || (UnsplashScroller = {}), Logger);
