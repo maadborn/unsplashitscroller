@@ -25,5 +25,5 @@
         obj.addEventListener(type, func);
     };
 
-    throttle ("scroll", "optimizedScroll");
+    throttle ('scroll', 'optimizedScroll');
 })();

@@ -10,7 +10,6 @@ var UnsplashScroller;
 	var SCROLLABLE_EXTRA = 1000;
 	var loadMoreImagesHeight = window.innerHeight + SCROLLABLE_EXTRA;
 
-	// debugger;
 	unsplashScroller.container = null;
 
 	/* Init function */
@@ -24,13 +23,9 @@ var UnsplashScroller;
 
 		while (this.container.offsetHeight < loadMoreImagesHeight) {
 			this.addImage(this.container);
-			//container = this.getContainer(selector);
 		}
 
-		window.addEventListener("optimizedScroll", function(event) {
-		    //debugger;
-		    // var height = 
-		    // containerhöjd - scrollTop på body < 
+		window.addEventListener('optimizedScroll', function(event) {
 		    var body = document.querySelector('body');
 		    while (this.container.offsetHeight - body.scrollTop < loadMoreImagesHeight) {
 				this.addImage(this.container);
