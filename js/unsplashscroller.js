@@ -1,6 +1,8 @@
 /*
 	Infinite image scroller with images from unsplash.it
 */
+/* Infinite scroller using images from unsplash */
+
 'use strict';
 
 var UnsplashScroller;
